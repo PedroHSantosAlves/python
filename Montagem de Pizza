@@ -1,0 +1,46 @@
+def pedido_pizza(tamanho_escolhido, sabor_escolhido, borda_recheada):
+    tamanhos = {1: 'pinto', 2: 'média', 3: 'grande'}
+
+    sabores = {1: 'mussarela', 2: 'calabresa', 3: 'margherita', 4: 'frango com catupiry'}
+
+    bordas = {1: 'Catupiry', 2: 'cheddar', 3: 'sem borda recheada'}
+
+    precos = {1: 25, 2: 35, 3: 60}
+    preco_borda = 5
+
+    if tamanho_escolhido not in tamanhos or sabor_escolhido not in sabores or borda_recheada not in bordas:
+        return 'Escolha inválida.'
+
+    tamanho = tamanhos[tamanho_escolhido]
+    sabor = sabores[sabor_escolhido]
+    borda = bordas[borda_recheada]
+
+    preco = precos[tamanho_escolhido]
+    if borda_recheada != 3:
+        preco += preco_borda
+
+    return f'Você pediu uma pizza {tamanho} sabor {sabor} com borda recheada de {borda} por R${preco} na faixaaaaa paizãooooooooo.'
+
+
+while True:
+    try:
+        tamanho = int(input("Escolha o tamanho da pizza (1-pequena, 2-média, 3-grande): "))
+        if tamanho < 1 or tamanho > 3:
+            print("O caralho escolha entre (1, 2 ou 3)! Tente novamente.")
+            continue
+
+        sabor = int(input("Escolha o sabor da pizza (1-mussarela, 2-calabresa, 3-margherita, 4-frango com catupiry): "))
+        if sabor < 1 or sabor > 4:
+            print("Se é burro é? escolha um sabor válido (1, 2, 3 ou 4)! Tente novamente.")
+            continue
+
+        borda_recheada = int(input("Escolha a borda recheada (1-Catupiry, 2-cheddar, 3-sem borda recheada): "))
+        if borda_recheada < 1 or borda_recheada > 3:
+            print("CARALHO PORRA ENTRE (1, 2 ou 3)! Tente novamente.")
+            continue
+
+        break
+    except ValueError:
+        print("Na moral tu é muito cabaço tente novamente ai seu animal.")
+
+print(pedido_pizza(tamanho, sabor, borda_recheada))
